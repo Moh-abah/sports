@@ -1,3 +1,4 @@
+// استدعاء fetch باستخدام dynamic import
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 const leagues = ["nba", "nfl", "mlb", "nhl", "mls"];
@@ -6,6 +7,21 @@ const leagues = ["nba", "nfl", "mlb", "nhl", "mls"];
 async function getDynamicPaths() {
     const allPaths = [];
 
+    // إضافة صفحات ثابتة مثل about و privacy
+    const staticPages = [
+        { loc: '/about', priority: 0.7, changefreq: 'monthly' },
+        { loc: '/contact', priority: 0.7, changefreq: 'monthly' },
+        { loc: '/privacy', priority: 0.6, changefreq: 'yearly' },
+        { loc: '/terms', priority: 0.6, changefreq: 'yearly' },
+        { loc: '/sports-guide', priority: 0.8, changefreq: 'weekly' },
+    ];
+
+    allPaths.push(...staticPages.map(page => ({
+        ...page,
+        lastmod: new Date().toISOString(),
+    })));
+
+    // إضافة مسارات الدوريات والمباريات
     for (const league of leagues) {
         // صفحة الدوري نفسها
         allPaths.push({
@@ -32,7 +48,7 @@ async function getDynamicPaths() {
                 });
             }
         } catch (err) {
-            console.warn(`Failed to fetch ${league} games for sitemap:`, err);
+            console.warn(`⚠️ Failed to fetch ${league} games for sitemap:`, err.message);
         }
     }
 
@@ -43,6 +59,8 @@ module.exports = {
     siteUrl: 'https://livesportsresults.vercel.app',
     generateRobotsTxt: true,
     sitemapSize: 5000,
+
+    // دمج المسارات الديناميكية والثابتة
     additionalPaths: async () => {
         const dynamicPaths = await getDynamicPaths();
         return dynamicPaths.map(path => ({
@@ -52,6 +70,7 @@ module.exports = {
             changefreq: path.changefreq
         }));
     },
+
     transform: async (config, path) => ({
         loc: path.loc,
         lastmod: path.lastmod || new Date().toISOString(),
