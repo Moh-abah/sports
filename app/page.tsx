@@ -183,6 +183,23 @@ export default function HomePage() {
                   && (
                     <div className="my-8">
                       <GoogleAd adSlot="3448186493" />
+                    {/* Propeller Banner 468x60 */}
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: `
+          <script type="text/javascript">
+            atOptions = {
+              'key' : '1cf1dc6c544a07ec552c828cfb0c32cd',
+              'format' : 'iframe',
+              'height' : 60,
+              'width' : 468,
+              'params' : {}
+            };
+          </script>
+          <script type="text/javascript" src="//www.highperformanceformat.com/1cf1dc6c544a07ec552c828cfb0c32cd/invoke.js"></script>
+        `,
+                      }}
+                    ></div>
                     </div>
                    ) }
               </div>
