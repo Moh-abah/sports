@@ -6,7 +6,8 @@ import LeagueSection from "@/components/league-section"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import LoadingState from "@/components/loading-state"
-
+import AdBanner from '../components/AdBanner'
+import Script from 'next/script'
 import { Toaster } from "@/components/ui/toaster"
 import { useToast } from "@/components/ui/use-toast"
 import LiveScoresTicker from "@/components/live-scores-ticker"
@@ -89,6 +90,28 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900">
+      <Script
+        id="ad-script-config"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            atOptions = {
+              'key' : '1cf1dc6c544a07ec552c828cfb0c32cd',
+              'format' : 'iframe',
+              'height' : 60,
+              'width' : 468,
+              'params' : {}
+            };
+          `,
+        }}
+      />
+
+      {/* النص البرمجي الخارجي */}
+      <Script
+        id="ad-script-external"
+        strategy="afterInteractive"
+        src="//www.highperformanceformat.com/1cf1dc6c544a07ec552c828cfb0c32cd/invoke.js"
+      />
       <Header />
 
       <main className="flex-grow container mx-auto px-4 py-8">
@@ -220,10 +243,14 @@ export default function HomePage() {
         </div>
         <div className="mt-12">
           <GoogleAdRelaxed adSlot="3037122956" />
+        
         </div>
-
+        <AdBanner />
 
         <RecentGames />
+        <div id="ad-container">
+
+        </div>
         
 
        
