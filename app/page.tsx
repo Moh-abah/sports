@@ -12,6 +12,8 @@ import { useToast } from "@/components/ui/use-toast"
 import LiveScoresTicker from "@/components/live-scores-ticker"
 import RecentGames from "@/components/recent-games"
 import StandingsTable from "@/components/standings-table"
+import GoogleAd from "@/components/GoogleAd"
+import GoogleAdRelaxed from "@/components/GoogleAdRelaxed"
 
 export default function HomePage() {
   const [sportsData, setSportsData] = useState<any[]>([])
@@ -177,7 +179,12 @@ export default function HomePage() {
                 <LeagueSection league={league} />
 
                
-                {index === Math.floor(sportsData.length / 2) }
+                {index === Math.floor(sportsData.length / 2)
+                  && (
+                    <div className="my-8">
+                      <GoogleAd adSlot="3448186493" />
+                    </div>
+                   ) }
               </div>
             ))}
           </div>
@@ -194,8 +201,13 @@ export default function HomePage() {
           </div>
           <StandingsTable league="mls" />
         </div>
+        <div className="mt-12">
+          <GoogleAdRelaxed adSlot="3037122956" />
+        </div>
+
 
         <RecentGames />
+        
 
        
       </main>
