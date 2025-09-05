@@ -5,7 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import Script from "next/script"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next";
-
+const GA_MEASUREMENT_ID = "G-ECFDHY76X3"
 export const metadata: Metadata = {
   title: "Live Sports Results | Real-time American Sports Scores",
   description:
@@ -96,6 +96,21 @@ export default function RootLayout({
         />
 
         <meta name="google-site-verification" content="m8w370EfZ-39S-A37CL08wK_rBdq7hlyoUa3gfQv2_w" />
+        <Script strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} />
+        <Script
+          id="gtag-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_MEASUREMENT_ID}', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
       </head>
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
