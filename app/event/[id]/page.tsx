@@ -7,6 +7,7 @@ import Header from "@/components/header"
 import Footer from "@/components/footer"
 
 import { fetchEventDetails } from "@/lib/api"
+import Script from "next/script"
 
 // Types (as before)...
 type Maybe<T> = T | null | undefined
@@ -398,6 +399,58 @@ export default function EventPageLive() {
               </div>
             )}
           </div>
+          <Script
+            type="application/ld+json"
+            id="event-json-ld"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "SportsEvent",
+                "name": `${home?.name || "Home Team"} vs ${away?.name || "Away Team"} - ${league?.name || "League"}`,
+                "startDate": event?.dateEvent || new Date().toISOString(),
+                "endDate": event?.dateEvent ? new Date(new Date(event.dateEvent).getTime() + 2 * 60 * 60 * 1000).toISOString() : undefined, // افتراض مدة ساعتين
+                "eventStatus": status?.isLive ? "https://schema.org/EventScheduled" : "https://schema.org/EventCancelled",
+                "location": {
+                  "@type": "Place",
+                  "name": venue?.name || "TBD",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": venue?.city || "",
+                    "addressCountry": venue?.country || ""
+                  }
+                },
+                "performer": [
+                  {
+                    "@type": "SportsTeam",
+                    "name": home?.name || "Home Team",
+                    "logo": home?.logo || undefined
+                  },
+                  {
+                    "@type": "SportsTeam",
+                    "name": away?.name || "Away Team",
+                    "logo": away?.logo || undefined
+                  }
+                ],
+                "superEvent": league?.name ? {
+                  "@type": "SportsOrganization",
+                  "name": league.name
+                } : undefined,
+                "result": resolvedScores ? {
+                  "@type": "SportsEventResult",
+                  "homeTeam": {
+                    "@type": "SportsTeam",
+                    "name": home?.name || "Home Team",
+                    "score": resolvedScores.homeScore
+                  },
+                  "awayTeam": {
+                    "@type": "SportsTeam",
+                    "name": away?.name || "Away Team",
+                    "score": resolvedScores.awayScore
+                  }
+                } : undefined
+              })
+            }}
+          />
 
           <div className="border-b border-gray-200 dark:border-gray-700">
             <nav className="flex -mb-px">
