@@ -6,6 +6,10 @@ import Script from "next/script"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next";
 const GA_MEASUREMENT_ID = "G-ECFDHY76X3"
+const GA_MEASUREMENT_IDinDWH = "G-BV6MPGPYS9"
+
+
+
 export const metadata: Metadata = {
   title: "Live Sports Results | Real-time American Sports Scores",
   description:
@@ -106,6 +110,21 @@ export default function RootLayout({
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', '${GA_MEASUREMENT_ID}', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
+        <Script strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_IDinDWH}`} />
+        <Script
+          id="gtag-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_MEASUREMENT_IDinDWH}', {
                 page_path: window.location.pathname,
               });
             `,
