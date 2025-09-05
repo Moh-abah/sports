@@ -94,6 +94,8 @@ export default function RootLayout({
           crossOrigin="anonymous"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2668531109183096"
         />
+
+        <meta name="google-site-verification" content="m8w370EfZ-39S-A37CL08wK_rBdq7hlyoUa3gfQv2_w" />
       </head>
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
