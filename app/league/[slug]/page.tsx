@@ -9,6 +9,7 @@ import LoadingState from "@/components/loading-state"
 import EventCard from "@/components/event-card"
 
 import Link from "next/link"
+import Script from "next/script"
 
 export default function LeaguePage() {
   const params = useParams()
@@ -57,6 +58,7 @@ export default function LeaguePage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900">
+      
       <Header />
 
       <main className="flex-grow container mx-auto px-4 py-8">
@@ -135,6 +137,30 @@ export default function LeaguePage() {
             {events.map((event, index) => (
               <div key={index}>
                 <EventCard event={event} />
+                {/* JSON-LD لكل مباراة */}
+                <Script
+                  type="application/ld+json"
+                  dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                      "@context": "https://schema.org",
+                      "@type": "SportsEvent",
+                      "name": event.name || `${event.homeTeam} vs ${event.awayTeam}`,
+                      "startDate": event.startDate,
+                      "endDate": event.endDate || null,
+                      "location": {
+                        "@type": "Place",
+                        "name": event.stadium || "TBD",
+                        "address": event.stadiumAddress || "Unknown"
+                      },
+                      "performer": [
+                        { "@type": "SportsTeam", "name": event.homeTeam },
+                        { "@type": "SportsTeam", "name": event.awayTeam }
+                      ],
+                      "description": event.description || `${event.homeTeam} vs ${event.awayTeam} in ${leagueName}`,
+                      "url": event.url || window.location.href
+                    })
+                  }}
+                />
                 {/* إعلان بين المباريات - يظهر فقط إذا كان متاحاً */}
                 {index === Math.floor(events.length / 2)  
                  

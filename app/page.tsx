@@ -112,6 +112,21 @@ export default function HomePage() {
         strategy="afterInteractive"
         src="//www.highperformanceformat.com/1cf1dc6c544a07ec552c828cfb0c32cd/invoke.js"
       />
+
+      <Script
+        id="structured-data-logo"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "url": "https://livesportsresults.vercel.app", // رابط موقعك
+            "logo": "https://livesportsresults.vercel.app/logo.png" // رابط شعارك مباشر
+          })
+        }}
+      />
+
       <Header />
 
       <main className="flex-grow container mx-auto px-4 py-8">

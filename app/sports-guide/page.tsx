@@ -3,6 +3,7 @@ import Footer from "@/components/footer"
 
 import Link from "next/link"
 import type { Metadata } from "next"
+import Script from "next/script"
 
 export const metadata: Metadata = {
   title: "American Sports Guide | Understanding MLB, NBA, NFL, NHL & MLS",
@@ -15,6 +16,22 @@ export const metadata: Metadata = {
 export default function SportsGuidePage() {
   return (
     <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900">
+      <Script
+        id="structured-data-mlb"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SportsOrganization",
+            "name": "MLB - Major League Baseball",
+            "url": "https://livesportsresults.vercel.app/league/mlb",
+            "logo": "https://livesportsresults.vercel.app/logo.png",
+            "sport": "Baseball"
+          })
+        }}
+      />
+
       <Header />
 
       <main className="flex-grow container mx-auto px-4 py-8">
