@@ -1,3 +1,47 @@
+// E:\sport\lib\api.ts
+
+export const API_BASE = "/api/nfl";
+import { Player, Coach, Team } from "@/types/playerr";
+export async function fetchTeams() {
+  const res = await fetch(`${API_BASE}/teams`);
+  if (!res.ok) throw new Error("Failed to fetch teams");
+  return res.json();
+}
+
+export async function fetchTeamDepthChart(slug: string) {
+  const res = await fetch(`${API_BASE}/team/${slug}/depth-chart`);
+  if (!res.ok) throw new Error("Failed to fetch depth chart");
+  return res.json();
+}
+
+export async function fetchPlayer(slug: string) {
+  const res = await fetch(`${API_BASE}/player/${slug}`);
+  if (!res.ok) throw new Error("Failed to fetch player data");
+  return res.json();
+}
+
+export async function fetchMatchById(id: string) {
+  const res = await fetch(`${API_BASE}/matches/${id}`);
+  if (!res.ok) throw new Error("Failed to fetch match data");
+  return res.json();
+}
+
+export async function fetchScoreboard() {
+  const res = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard`);
+  if (!res.ok) throw new Error("Failed to fetch scoreboard");
+  return res.json();
+}
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * Fetches REAL sports data from ESPN APIs - NO MOCK DATA
@@ -50,22 +94,22 @@ export async function fetchSportsData() {
 
 
 export async function fetchEventDetails(eventId: string) {
-  console.group(`🔵 fetchEventDetails called for: ${eventId}`);
+  // console.group(`🔵 fetchEventDetails called for: ${eventId}`);
   try {
-    console.log("Step 1: Sending fetch request to /api/events/...");
+    // console.log("Step 1: Sending fetch request to /api/events/...");
     const response = await fetch(`/api/events/${eventId}`, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     });
 
     const rawText = await response.clone().text();
-    console.log("📝 Raw API response text (trim):", rawText.substring(0, 2000));
-    if (!response.ok) {
+    // console.log("📝 Raw API response text (trim):", rawText.substring(0, 2000));
+     if (!response.ok) {
       throw new Error(`API responded with status: ${response.status}`);
     }
 
     const data = await response.json();
-    console.log("Step 2: JSON parsed (raw):", !!data);
+    // console.log("Step 2: JSON parsed (raw):", !!data);
 
     // helpers
     const isPlayEvent = (obj: any) =>
@@ -214,13 +258,13 @@ export async function fetchEventDetails(eventId: string) {
     normalizedData.homeTeam.score = Number(normalizedData.homeTeam.score) || 0;
     normalizedData.awayTeam.score = Number(normalizedData.awayTeam.score) || 0;
 
-    console.log("Step 3: Normalized event data:");
-    console.log(JSON.stringify(normalizedData, null, 2));
+    // console.log("Step 3: Normalized event data:");
+    // console.log(JSON.stringify(normalizedData, null, 2));
 
     console.groupEnd();
     return normalizedData;
   } catch (error) {
-    console.error("Step 4: Error fetching/normalizing event details:", error);
+    // console.error("Step 4: Error fetching/normalizing event details:", error);
     console.groupEnd();
     return null;
   }
@@ -232,8 +276,251 @@ export async function fetchEventDetails(eventId: string) {
 
 
 
+// lib/api.ts
 
 
+export async function fetchTeamRoster(teamId: string, sport: string) {
+  try {
+    const res = await fetch(
+      `https://site.api.espn.com/apis/site/v2/sports/${sport}/teams/${teamId}/roster`,
+      { cache: "no-store" }
+    );
+    if (!res.ok) return null;
+
+    const data = await res.json();
+
+    // تحويل كل اللاعبين لمصفوفة منظمة
+    const athletes = data.athletes.map((group: any) => ({
+      position: group.position,
+      players: group.items.map((player: any) => ({
+        id: player.id,
+        displayName: player.displayName,
+        firstName: player.firstName,
+        lastName: player.lastName,
+        fullName: player.fullName,
+        shortName: player.shortName,
+        headshot: player.headshot,
+        position: player.position,
+        jersey: player.jersey,
+        height: player.height,
+        displayHeight: player.displayHeight,
+        weight: player.weight,
+        displayWeight: player.displayWeight,
+        age: player.age,
+        dateOfBirth: player.dateOfBirth,
+        experience: player.experience,
+        status: player.status,
+        college: player.college,
+        injuries: player.injuries,
+        rawData: player,
+      })),
+    }));
+
+    const coaches: Coach[] = data.coach || [];
+    const team: Team = data.team;
+
+    return { team, season: data.season, athletes, coaches };
+  } catch (error) {
+    console.error("Error fetching team roster:", error);
+    return null;
+  }
+}
+
+
+
+// lib/api.ts
+/**
+ * جلب بيانات لاعب معين بناءً على معرف اللاعب ونوع الرياضة
+ * @param playerId معرف اللاعب
+ * @param eventId معرف الحدث (يحتوي نوع الرياضة مثل nba_401812481)
+ * @returns بيانات اللاعب أو null في حالة الخطأ
+ */
+export const fetchPlayerDetails = async (
+  playerId: string,
+  eventId: string
+): Promise<PlayerDetails | null> => {
+  try {
+    // استخراج نوع الرياضة من eventId
+    const sport = getSportFromEventId(eventId);
+    console.log("Sport detected:", sport);
+
+    // إنشاء رابط الـ fetch النهائي
+    const finalUrl = `https://site.api.espn.com/apis/site/v2/sports/${getSportPath(sport)}/athletes/${playerId}`;
+
+    console.log("Final Fetch URL:", finalUrl);
+
+    // تنفيذ الطلب
+    const response = await fetch(finalUrl, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    });
+
+    console.log("Response status:", response.status);
+
+    // إذا لم يكن الطلب ناجحًا
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    // قراءة البيانات
+    const data = await response.json();
+    console.log("Raw API Data:", JSON.stringify(data, null, 2));
+
+    // إذا البيانات فارغة
+    if (!data || Object.keys(data).length === 0) {
+      console.warn("API returned empty data!");
+      return null;
+    }
+
+    // تحويل البيانات إلى الهيكل المطلوب
+    const transformed = transformPlayerData(data.athlete || data);
+    console.log("Transformed Player Data:", transformed);
+
+    return transformed;
+  } catch (error) {
+    console.error("Error fetching player details:", error);
+    return null;
+  }
+};
+
+/**
+ * تحديد مسار نوع الرياضة بناءً على ESPN API
+ */
+function getSportPath(sport: string): string {
+  switch (sport) {
+    case "nba":
+      return "basketball/nba";
+    case "nfl":
+      return "football/nfl";
+    case "mlb":
+      return "baseball/mlb";
+    case "nhl":
+      return "hockey/nhl";
+    case "mls":
+      return "soccer/usa.1"; // MLS مساره بهذا الشكل
+    default:
+      throw new Error(`Unsupported sport type: ${sport}`);
+  }
+}
+
+/**
+ * استخراج نوع الرياضة من eventId
+ * مثال: nba_401812481 → nba
+ */
+function getSportFromEventId(eventId: string): string {
+  return eventId.split("_")[0].toLowerCase();
+}
+
+/**
+ * تحويل بيانات اللاعب من API إلى هيكل PlayerDetails
+ */
+const transformPlayerData = (data: any): PlayerDetails => {
+  return {
+    id: data.id || data.athlete?.id || "",
+    displayName: data.fullName || data.displayName || data.athlete?.fullName || "",
+    firstName: data.firstName || data.athlete?.firstName || "",
+    lastName: data.lastName || data.athlete?.lastName || "",
+    position: {
+      abbreviation: data.position?.abbreviation || data.athlete?.position?.abbreviation,
+      name: data.position?.name || data.athlete?.position?.name,
+    },
+    jersey: data.jerseyNumber || data.athlete?.jersey || data.uniformNumber,
+    headshot: {
+      href: data.headshot?.href || data.athlete?.headshot?.href || data.imageUrl,
+    },
+    displayHeight: data.height || data.athlete?.height,
+    displayWeight: data.weight || data.athlete?.weight,
+    age: data.age || data.athlete?.age,
+    status: {
+      name: data.status || data.athlete?.status,
+    },
+    college: {
+      name: data.college || data.collegeName || data.athlete?.college,
+    },
+    experience: {
+      years: data.experience || data.yearsOfExperience || data.athlete?.experience,
+    },
+    dateOfBirth: data.dateOfBirth || data.birthDate || data.athlete?.dateOfBirth,
+    birthPlace: data.birthPlace || data.birthCity || data.athlete?.birthPlace,
+    draft: data.draft
+      ? {
+        year: data.draft.year,
+        round: data.draft.round,
+        pick: data.draft.pick,
+      }
+      : undefined,
+    contract: data.contract
+      ? {
+        value: data.contract.value,
+        years: data.contract.years,
+      }
+      : undefined,
+    stats: data.stats || data.statistics,
+    awards: data.awards || data.honors,
+    socialMedia: data.socialMedia || data.socialNetworks,
+    team: data.team
+      ? {
+        id: data.team.id,
+        name: data.team.name,
+        displayName: data.team.displayName,
+        logo: data.team.logo,
+      }
+      : undefined,
+  };
+};
+
+/**
+ * تعريف نوع PlayerDetails
+ */
+export interface PlayerDetails {
+  id: string;
+  displayName: string;
+  firstName: string;
+  lastName: string;
+  position?: {
+    abbreviation?: string;
+    name?: string;
+  };
+  jersey?: string;
+  headshot?: {
+    href: string;
+  };
+  displayHeight?: string;
+  displayWeight?: string;
+  age?: number;
+  status?: {
+    name?: string;
+  };
+  college?: {
+    name?: string;
+  };
+  experience?: {
+    years?: number;
+  };
+  dateOfBirth?: string;
+  birthPlace?: string;
+  draft?: {
+    year?: number;
+    round?: number;
+    pick?: number;
+  };
+  contract?: {
+    value?: string;
+    years?: number;
+  };
+  stats?: any[];
+  awards?: any[];
+  socialMedia?: {
+    platform: string;
+    handle: string;
+  }[];
+  team?: {
+    id: string;
+    name: string;
+    displayName: string;
+    logo: string;
+  };
+}
 
 
 
@@ -244,8 +531,8 @@ export async function fetchEventDetails(eventId: string) {
  * @returns {Promise<Array>} Array of real events for the league
  */
 export async function fetchLeagueEvents(leagueId: string) {
-  console.log("=== fetchLeagueEvents START ===")
-  console.log("League ID:", leagueId)
+  // console.log("=== fetchLeagueEvents START ===")
+  // console.log("League ID:", leagueId)
 
   try {
     const response = await fetch(`/api/leagues/${leagueId}`, {
@@ -253,25 +540,25 @@ export async function fetchLeagueEvents(leagueId: string) {
       headers: { 'Content-Type': 'application/json' }
     })
 
-    console.log("Response status:", response.status)
+    // console.log("Response status:", response.status)
     if (!response.ok) throw new Error(`API responded with status: ${response.status}`)
 
     const data = await response.json()
-    console.log("Raw API data received:", data)
+    // console.log("Raw API data received:", data)
 
     if (data && Array.isArray(data.games)) {
-      console.log("Returning data.games array with length:", data.games.length)
+      // console.log("Returning data.games array with length:", data.games.length)
       return data.games
     } else {
-      console.log("No games array found in API data, returning empty array")
+      // console.log("No games array found in API data, returning empty array")
       return []
     }
 
   } catch (error) {
-    console.error("Error fetching real league events:", error)
+    // console.error("Error fetching real league events:", error)
     return []
   } finally {
-    console.log("=== fetchLeagueEvents END ===")
+    // console.log("=== fetchLeagueEvents END ===")
   }
 }
 
@@ -294,12 +581,12 @@ export async function fetchSportsDataWithCache() {
   if (realDataCache.data &&
     realDataCache.data.length > 0 &&
     now - realDataCache.timestamp < realDataCache.CACHE_DURATION) {
-    console.log('Returning cached real sports data')
+    // console.log('Returning cached real sports data')
     return realDataCache.data
   }
 
   // Fetch fresh real data
-  console.log('Fetching fresh real sports data')
+  // console.log('Fetching fresh real sports data')
   const freshRealData = await fetchSportsData()
 
   // Only cache if we have real data
@@ -380,7 +667,7 @@ export async function getRealSportsStats() {
       dataSource: 'ESPN Real-Time APIs'
     }
   } catch (error) {
-    console.error('Error getting real sports stats:', error)
+    // console.error('Error getting real sports stats:', error)
     return {
       totalGames: 0,
       liveGames: 0,

@@ -4,8 +4,8 @@ import { NextResponse } from "next/server";
 // Function to fetch real event details from ESPN - NO MOCK DATA
 async function fetchRealEventDetails(eventId: string) {
   try {
-    console.log(`\n=== START fetchRealEventDetails ===`);
-    // console.log(`Event ID received: ${eventId}`);
+    // console.log(`\n=== START fetchRealEventDetails ===`);
+    // // console.log(`Event ID received: ${eventId}`);
 
     // تقسيم eventId إلى league و espnEventId
     const [league, espnEventId] = eventId.split("_");
@@ -151,11 +151,11 @@ async function fetchRealEventDetails(eventId: string) {
       },
     };
 
-    console.log(
-      "✅ Normalized event sent to front-end:",
-      JSON.stringify(normalized, null, 2)
-    );
-    console.log(`=== END fetchRealEventDetails ===\n`);
+    // console.log(
+    //   "✅ Normalized event sent to front-end:",
+    //   JSON.stringify(normalized, null, 2)
+    // );
+    // console.log(`=== END fetchRealEventDetails ===\n`);
 
     return normalized;
   } catch (error) {

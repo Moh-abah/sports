@@ -353,10 +353,14 @@ export default function LeagueSection({ league }: LeagueSectionProps) {
 
       <div className="p-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {(league.games || league.events || []).map((event, index) => (
+          {/* {(league.games || league.events || []).map((event, index) => (
             <EventCard key={index} event={event} />
-          ))}
-        </div>
+          ))} */}
+
+
+{(league.games || []).map((event, index) => (
+  <EventCard key={index} event={event} />
+))}        </div>
       </div>
     </section>
   )
