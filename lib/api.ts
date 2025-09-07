@@ -122,184 +122,362 @@ export async function fetchSportsData() {
 
 
 export async function fetchEventDetails(eventId: string) {
+  console.group(`🔵 fetchEventDetails called for: ${eventId}`);
   // console.group(`🔵 fetchEventDetails called for: ${eventId}`);
   const cached = getCachedEvent(eventId);
-  if (cached) return cached;
-  try {
-    // console.log("Step 1: Sending fetch request to /api/events/...");
-    const response = await fetch(`/api/events/${eventId}`, {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-    });
-
-    const rawText = await response.clone().text();
-    // console.log("📝 Raw API response text (trim):", rawText.substring(0, 2000));
-     if (!response.ok) {
-      throw new Error(`API responded with status: ${response.status}`);
-    }
-
-    const data = await response.json();
-    // تحديد TTL حسب حالة المباراة
-    let ttl = 400; // 10 دقائق افتراضي
-    if (data.status?.isLive) ttl = 20; // حية: 20 ثانية
-    else if (data.status?.description?.toLowerCase() === "final") ttl = 86400; // منتهية: 24 ساعة
-    // مجدولة تبقى 10 دقائق (TTL الافتراضي)
-
-    setCachedEvent(eventId, data, ttl);
-    // console.log("Step 2: JSON parsed (raw):", !!data);
-
-    // helpers
-    const isPlayEvent = (obj: any) =>
-      obj && (obj.sequenceNumber || obj.atBatId || (obj.type && obj.type.text));
-    const stripUnbalancedBraces = (s: string) =>
-      typeof s === "string" ? s.replace(/\{[^}]*\}/g, "").trim() : s;
-
-    // deep sanitize for stats arrays (remove accidental play-by-play inside stats,
-    // strip broken brace fragments, and coerce numeric scores)
-    const sanitizedBoxscore: any = { teams: [], players: [] };
-    const collectedPlays: any[] = [];
-
-    if (data.boxscore?.teams && Array.isArray(data.boxscore.teams)) {
-      for (const team of data.boxscore.teams) {
-        const newTeam: any = { ...team };
-        if (Array.isArray(team.statistics)) {
-          newTeam.statistics = team.statistics.map((statGroup: any) => {
-            if (!Array.isArray(statGroup.stats)) return { ...statGroup, stats: [] };
-            const kept: any[] = [];
-            for (const s of statGroup.stats) {
-              // if this entry looks like a play, move it to playByPlay
-              if (isPlayEvent(s)) {
-                collectedPlays.push(s);
-                continue;
-              }
-              // sanitize string fields inside stat entries
-              if (typeof s === "object" && s !== null) {
-                const cleaned: any = {};
-                for (const k of Object.keys(s)) {
-                  cleaned[k] = typeof s[k] === "string" ? stripUnbalancedBraces(s[k]) : s[k];
-                }
-                kept.push(cleaned);
-              } else if (typeof s === "string") {
-                kept.push(stripUnbalancedBraces(s));
-              } else {
-                kept.push(s);
-              }
-            }
-            return { ...statGroup, stats: kept };
-          });
-        }
-        sanitizedBoxscore.teams.push(newTeam);
-      }
-    } else if (data.boxscore) {
-      // if boxscore exists but malformed, try to keep top-level
-      sanitizedBoxscore.teams = data.boxscore.teams || [];
-    }
-
-    sanitizedBoxscore.players = data.boxscore?.players || [];
-
-    // normalize competitors <-> homeTeam/awayTeam records & scores
-    const competitors = data.competitors || [];
-    const findCompetitor = (id: any) => competitors.find((c: any) => `${c.id}` === `${id}`);
-
-    const readScore = (obj: any) => {
-      if (obj == null) return 0;
-      const n = Number(obj.score ?? obj.displayValue ?? obj);
-      return Number.isFinite(n) ? n : 0;
-    };
-
-    // normalized top-level object
-    const normalizedData: any = {
-      id: data.id || eventId,
-      league: {
-        id: data.league?.id ?? "",
-        name: data.league?.name ?? "",
-        abbreviation: data.league?.abbreviation ?? "",
-        links: data.league?.links ?? [],
-      },
-      homeTeam: {
-        id: data.homeTeam?.id ?? "",
-        name: data.homeTeam?.name ?? "Home Team",
-        abbreviation: data.homeTeam?.abbreviation ?? "",
-        shortName: data.homeTeam?.shortName ?? data.homeTeam?.displayName ?? "",
-        color: data.homeTeam?.color ?? "",
-        alternateColor: data.homeTeam?.alternateColor ?? "",
-        logo: data.homeTeam?.logo ?? "",
-        score: readScore(data.homeTeam) || readScore(findCompetitor(data.homeTeam?.id)),
-        record: data.homeTeam?.record?.length ? data.homeTeam.record : (findCompetitor(data.homeTeam?.id)?.record || []),
-        stats: data.homeTeam?.stats || [],
-        links: data.homeTeam?.links || [],
-      },
-      awayTeam: {
-        id: data.awayTeam?.id ?? "",
-        name: data.awayTeam?.name ?? "Away Team",
-        abbreviation: data.awayTeam?.abbreviation ?? "",
-        shortName: data.awayTeam?.shortName ?? data.awayTeam?.displayName ?? "",
-        color: data.awayTeam?.color ?? "",
-        alternateColor: data.awayTeam?.alternateColor ?? "",
-        logo: data.awayTeam?.logo ?? "",
-        score: readScore(data.awayTeam) || readScore(findCompetitor(data.awayTeam?.id)),
-        record: data.awayTeam?.record?.length ? data.awayTeam.record : (findCompetitor(data.awayTeam?.id)?.record || []),
-        stats: data.awayTeam?.stats || [],
-        links: data.awayTeam?.links || [],
-      },
-      status: {
-        description: (data.status?.description || "").toString(),
-        state: data.status?.state || "",
-        period: data.status?.period ?? 0,
-        displayClock: data.status?.displayClock || "",
-        isLive: !!data.status?.isLive,
-      },
-      dateEvent: data.dateEvent || data.date || "",
-      venue: {
-        id: data.venue?.id ?? "",
-        name: data.venue?.name ?? "TBD",
-        city: data.venue?.city ?? "",
-        country: data.venue?.country ?? "",
-        capacity: data.venue?.capacity > 0 ? data.venue.capacity : null,
-        indoor: !!data.venue?.indoor,
-      },
-      season: data.season || {},
-      description: data.description || "",
-      highlights: data.highlights || [],
-      news: data.news || {},
-      boxscore: sanitizedBoxscore,
-      playByPlay: Array.isArray(data.playByPlay) ? data.playByPlay.concat(collectedPlays) : collectedPlays,
-      competitors: competitors,
-      links: {
-        web: data.links?.web || (data.boxscore?.links?.web ?? ""),
-        mobile: data.links?.mobile || (data.boxscore?.links?.mobile ?? ""),
-        tickets: data.links?.tickets || [],
-      },
-    };
-
-    // reconcile status: if there are scores but status says Scheduled -> flip to In Progress
-    const totalScore = Number(normalizedData.homeTeam.score) + Number(normalizedData.awayTeam.score);
-    if (totalScore > 0) {
-      const desc = (normalizedData.status.description || "").toLowerCase();
-      if (desc.includes("sched") || desc === "" || desc === "scheduled") {
-        normalizedData.status.description = "In Progress";
-        normalizedData.status.isLive = true;
-      }
-    }
-
-    // if there are linescores showing End, mark final
-    const anyLinescores = (data.boxscore?.teams || []).some((t: any) =>
-      Array.isArray(t.linescores) && t.linescores.some((ls: any) => ls.displayValue === "End")
-    );
-    if (anyLinescores && totalScore > 0) {
-      normalizedData.status.description = "Final";
-      normalizedData.status.isLive = false;
-    }
-
-    // final safety: ensure numeric values for scores
-    normalizedData.homeTeam.score = Number(normalizedData.homeTeam.score) || 0;
-    normalizedData.awayTeam.score = Number(normalizedData.awayTeam.score) || 0;
-
-    // console.log("Step 3: Normalized event data:");
-    // console.log(JSON.stringify(normalizedData, null, 2));
-
+  if (cached) {
+    console.log("✅ Returning cached event");
     console.groupEnd();
-    return normalizedData;
+    return cached;
+  }
+  try {
+    const [league, espnEventId] = eventId.split("_");
+    if (!league || !espnEventId) throw new Error("Invalid event ID format");
+
+    // تحديد نوع الرياضة حسب الـ league
+    const leagueMap: { [key: string]: string } = {
+      nba: "basketball/nba",
+      nfl: "football/nfl",
+      mlb: "baseball/mlb",
+      nhl: "hockey/nhl",
+      mls: "soccer/usa.1",
+    };
+
+    const espnPath = leagueMap[league.toLowerCase()];
+    if (!espnPath) throw new Error(`Unsupported league: ${league}`);
+
+
+    const summaryResponse = await fetch(
+      `https://site.api.espn.com/apis/site/v2/sports/${espnPath}/summary?event=${espnEventId}`,
+      {
+        headers: { "User-Agent": "SportsPro/1.0", Accept: "application/json" },
+      }
+    );
+
+    if (!summaryResponse.ok)
+      throw new Error(`ESPN API error: ${summaryResponse.status}`);
+
+    const summaryData = await summaryResponse.json();
+
+
+    if (!summaryData.header) throw new Error("Event not found");
+
+    const event = summaryData.header;
+    const competition = event.competitions?.[0];
+    if (!competition) throw new Error("No competition data found");
+
+    const homeTeam = competition.competitors?.find(
+      (c: any) => c.homeAway === "home"
+    );
+    const awayTeam = competition.competitors?.find(
+      (c: any) => c.homeAway === "away"
+    );
+
+    // تطبيع بيانات الملعب - مع fallback لو البيانات ناقصة
+    const venueData = competition?.venue || summaryData?.gameInfo?.venue || {};
+
+    // تجهيز بيانات اللاعبين إذا كانت متاحة
+    const playerStats = summaryData?.boxscore?.players || [];
+
+    // تجهيز البيانات النهائية
+    const normalized = {
+      id: eventId,
+      league: {
+        id: event.league?.id || "",
+        name: event.league?.name || league.toUpperCase(),
+        abbreviation: event.league?.abbreviation || "",
+        links: event.league?.links || [],
+      },
+
+      // بيانات الفريق المستضيف
+      homeTeam: {
+        id: homeTeam?.team?.id || "",
+        name: homeTeam?.team?.displayName || "Home",
+        abbreviation: homeTeam?.team?.abbreviation || "",
+        shortName: homeTeam?.team?.shortDisplayName || "",
+        color: homeTeam?.team?.color || "",
+        alternateColor: homeTeam?.team?.alternateColor || "",
+        logo: homeTeam?.team?.logos?.[0]?.href || "",
+        score: Number(homeTeam?.score) || 0,
+        record: homeTeam?.records || [],
+        stats: homeTeam?.statistics || [],
+        links: homeTeam?.team?.links || [],
+      },
+
+      // بيانات الفريق الضيف
+      awayTeam: {
+        id: awayTeam?.team?.id || "",
+        name: awayTeam?.team?.displayName || "Away",
+        abbreviation: awayTeam?.team?.abbreviation || "",
+        shortName: awayTeam?.team?.shortDisplayName || "",
+        color: awayTeam?.team?.color || "",
+        alternateColor: awayTeam?.team?.alternateColor || "",
+        logo: awayTeam?.team?.logos?.[0]?.href || "",
+        score: Number(awayTeam?.score) || 0,
+        record: awayTeam?.records || [],
+        stats: awayTeam?.statistics || [],
+        links: awayTeam?.team?.links || [],
+      },
+
+      // حالة المباراة
+      status: {
+        description: event.status?.type?.description || "Scheduled",
+        state: event.status?.type?.state || "",
+        period: event.status?.period || 0,
+        displayClock: event.status?.displayClock || "",
+        isLive: event.status?.type?.state === "in",
+      },
+
+      dateEvent: event.date,
+
+      // بيانات الملعب
+      venue: {
+        id: venueData?.id || "",
+        name: venueData?.fullName || "TBD",
+        city: venueData?.address?.city || "",
+        country: venueData?.address?.country || "",
+        capacity: venueData?.capacity || 0,
+        indoor: venueData?.indoor || false,
+      },
+
+      // بيانات الموسم
+      season: event.season || {},
+
+      // وصف عام للمباراة
+      description: event.description || "",
+
+      // بيانات الفيديو والهايلايت
+      highlights: summaryData.highlights || [],
+
+      // الأخبار المتعلقة
+      news: summaryData.news || [],
+
+      // Boxscore كامل
+      boxscore: {
+        teams: summaryData?.boxscore?.teams || [],
+        players: playerStats,
+      },
+
+      // Play-by-Play إذا كان موجود
+      playByPlay: summaryData?.plays || [],
+
+      // Competitors الخام
+      competitors: competition.competitors || [],
+
+      // روابط المشاركة
+      links: {
+        web: event.links?.[0]?.href || "",
+        mobile: event.links?.[1]?.href || "",
+        tickets: event.tickets || [],
+      },
+    };
+
+    // console.log(
+    //   "✅ Normalized event sent to front-end:",
+    //   JSON.stringify(normalized, null, 2)
+    // );
+    // console.log(`=== END fetchRealEventDetails ===\n`);
+
+    return normalized;
+  
+    //  const [league, espnEventId] = eventId.split("_");
+    //  if (!league || !espnEventId) throw new Error("Invalid event ID format");
+
+    //  // تحديد نوع الرياضة حسب الـ league
+    //  const leagueMap: { [key: string]: string } = {
+    //    nba: "basketball/nba",
+    //    nfl: "football/nfl",
+    //    mlb: "baseball/mlb",
+    //    nhl: "hockey/nhl",
+    //    mls: "soccer/usa.1",
+    //  };
+
+    //  const espnPath = leagueMap[league.toLowerCase()];
+    //  if (!espnPath) throw new Error(`Unsupported league: ${league}`);
+
+
+     
+     
+    //  const response = await fetch(
+    //    `https://site.api.espn.com/apis/site/v2/sports/${espnPath}/summary?event=${espnEventId}`,
+    //    {
+    //      cache: "force-cache",
+    //      next: { revalidate: 1800 },
+    //      headers: {
+    //        "User-Agent": "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)",
+    //        "Accept": "application/json",
+    //      },
+    //    }
+    //  );
+    
+    // if (!response.ok) {
+    //   throw new Error(`API responded with status: ${response.status}`);
+    // }
+
+    
+
+    // const data = await response.json();
+    // // تحديد TTL حسب حالة المباراة
+    // let ttl = 400; // 10 دقائق افتراضي
+    // if (data.status?.isLive) ttl = 20; // حية: 20 ثانية
+    // else if (data.status?.description?.toLowerCase() === "final") ttl = 86400; // منتهية: 24 ساعة
+    // // مجدولة تبقى 10 دقائق (TTL الافتراضي)
+
+    // setCachedEvent(eventId, data, ttl);
+    // // console.log("Step 2: JSON parsed (raw):", !!data);
+
+    // // helpers
+    // const isPlayEvent = (obj: any) =>
+    //   obj && (obj.sequenceNumber || obj.atBatId || (obj.type && obj.type.text));
+    // const stripUnbalancedBraces = (s: string) =>
+    //   typeof s === "string" ? s.replace(/\{[^}]*\}/g, "").trim() : s;
+
+    // // deep sanitize for stats arrays (remove accidental play-by-play inside stats,
+    // // strip broken brace fragments, and coerce numeric scores)
+    // const sanitizedBoxscore: any = { teams: [], players: [] };
+    // const collectedPlays: any[] = [];
+
+    // if (data.boxscore?.teams && Array.isArray(data.boxscore.teams)) {
+    //   for (const team of data.boxscore.teams) {
+    //     const newTeam: any = { ...team };
+    //     if (Array.isArray(team.statistics)) {
+    //       newTeam.statistics = team.statistics.map((statGroup: any) => {
+    //         if (!Array.isArray(statGroup.stats)) return { ...statGroup, stats: [] };
+    //         const kept: any[] = [];
+    //         for (const s of statGroup.stats) {
+    //           // if this entry looks like a play, move it to playByPlay
+    //           if (isPlayEvent(s)) {
+    //             collectedPlays.push(s);
+    //             continue;
+    //           }
+    //           // sanitize string fields inside stat entries
+    //           if (typeof s === "object" && s !== null) {
+    //             const cleaned: any = {};
+    //             for (const k of Object.keys(s)) {
+    //               cleaned[k] = typeof s[k] === "string" ? stripUnbalancedBraces(s[k]) : s[k];
+    //             }
+    //             kept.push(cleaned);
+    //           } else if (typeof s === "string") {
+    //             kept.push(stripUnbalancedBraces(s));
+    //           } else {
+    //             kept.push(s);
+    //           }
+    //         }
+    //         return { ...statGroup, stats: kept };
+    //       });
+    //     }
+    //     sanitizedBoxscore.teams.push(newTeam);
+    //   }
+    // } else if (data.boxscore) {
+    //   // if boxscore exists but malformed, try to keep top-level
+    //   sanitizedBoxscore.teams = data.boxscore.teams || [];
+    // }
+
+    // sanitizedBoxscore.players = data.boxscore?.players || [];
+
+    // // normalize competitors <-> homeTeam/awayTeam records & scores
+    // const competitors = data.competitors || [];
+    // const findCompetitor = (id: any) => competitors.find((c: any) => `${c.id}` === `${id}`);
+
+    // const readScore = (obj: any) => {
+    //   if (obj == null) return 0;
+    //   const n = Number(obj.score ?? obj.displayValue ?? obj);
+    //   return Number.isFinite(n) ? n : 0;
+    // };
+
+    // // normalized top-level object
+    // const normalizedData: any = {
+    //   id: data.id || eventId,
+    //   league: {
+    //     id: data.league?.id ?? "",
+    //     name: data.league?.name ?? "",
+    //     abbreviation: data.league?.abbreviation ?? "",
+    //     links: data.league?.links ?? [],
+    //   },
+    //   homeTeam: {
+    //     id: data.homeTeam?.id ?? "",
+    //     name: data.homeTeam?.name ?? "Home Team",
+    //     abbreviation: data.homeTeam?.abbreviation ?? "",
+    //     shortName: data.homeTeam?.shortName ?? data.homeTeam?.displayName ?? "",
+    //     color: data.homeTeam?.color ?? "",
+    //     alternateColor: data.homeTeam?.alternateColor ?? "",
+    //     logo: data.homeTeam?.logo ?? "",
+    //     score: readScore(data.homeTeam) || readScore(findCompetitor(data.homeTeam?.id)),
+    //     record: data.homeTeam?.record?.length ? data.homeTeam.record : (findCompetitor(data.homeTeam?.id)?.record || []),
+    //     stats: data.homeTeam?.stats || [],
+    //     links: data.homeTeam?.links || [],
+    //   },
+    //   awayTeam: {
+    //     id: data.awayTeam?.id ?? "",
+    //     name: data.awayTeam?.name ?? "Away Team",
+    //     abbreviation: data.awayTeam?.abbreviation ?? "",
+    //     shortName: data.awayTeam?.shortName ?? data.awayTeam?.displayName ?? "",
+    //     color: data.awayTeam?.color ?? "",
+    //     alternateColor: data.awayTeam?.alternateColor ?? "",
+    //     logo: data.awayTeam?.logo ?? "",
+    //     score: readScore(data.awayTeam) || readScore(findCompetitor(data.awayTeam?.id)),
+    //     record: data.awayTeam?.record?.length ? data.awayTeam.record : (findCompetitor(data.awayTeam?.id)?.record || []),
+    //     stats: data.awayTeam?.stats || [],
+    //     links: data.awayTeam?.links || [],
+    //   },
+    //   status: {
+    //     description: (data.status?.description || "").toString(),
+    //     state: data.status?.state || "",
+    //     period: data.status?.period ?? 0,
+    //     displayClock: data.status?.displayClock || "",
+    //     isLive: !!data.status?.isLive,
+    //   },
+    //   dateEvent: data.dateEvent || data.date || "",
+    //   venue: {
+    //     id: data.venue?.id ?? "",
+    //     name: data.venue?.name ?? "TBD",
+    //     city: data.venue?.city ?? "",
+    //     country: data.venue?.country ?? "",
+    //     capacity: data.venue?.capacity > 0 ? data.venue.capacity : null,
+    //     indoor: !!data.venue?.indoor,
+    //   },
+    //   season: data.season || {},
+    //   description: data.description || "",
+    //   highlights: data.highlights || [],
+    //   news: data.news || {},
+    //   boxscore: sanitizedBoxscore,
+    //   playByPlay: Array.isArray(data.playByPlay) ? data.playByPlay.concat(collectedPlays) : collectedPlays,
+    //   competitors: competitors,
+    //   links: {
+    //     web: data.links?.web || (data.boxscore?.links?.web ?? ""),
+    //     mobile: data.links?.mobile || (data.boxscore?.links?.mobile ?? ""),
+    //     tickets: data.links?.tickets || [],
+    //   },
+    // };
+
+    // // reconcile status: if there are scores but status says Scheduled -> flip to In Progress
+    // const totalScore = Number(normalizedData.homeTeam.score) + Number(normalizedData.awayTeam.score);
+    // if (totalScore > 0) {
+    //   const desc = (normalizedData.status.description || "").toLowerCase();
+    //   if (desc.includes("sched") || desc === "" || desc === "scheduled") {
+    //     normalizedData.status.description = "In Progress";
+    //     normalizedData.status.isLive = true;
+    //   }
+    // }
+
+    // // if there are linescores showing End, mark final
+    // const anyLinescores = (data.boxscore?.teams || []).some((t: any) =>
+    //   Array.isArray(t.linescores) && t.linescores.some((ls: any) => ls.displayValue === "End")
+    // );
+    // if (anyLinescores && totalScore > 0) {
+    //   normalizedData.status.description = "Final";
+    //   normalizedData.status.isLive = false;
+    // }
+
+    // // final safety: ensure numeric values for scores
+    // normalizedData.homeTeam.score = Number(normalizedData.homeTeam.score) || 0;
+    // normalizedData.awayTeam.score = Number(normalizedData.awayTeam.score) || 0;
+
+    // // console.log("Step 3: Normalized event data:");
+    // // console.log(JSON.stringify(normalizedData, null, 2));
+
+    // console.groupEnd();
+    // return normalizedData;
   } catch (error) {
     // console.error("Step 4: Error fetching/normalizing event details:", error);
     console.groupEnd();

@@ -1,23 +1,21 @@
-
-
+// app/event/[id]/page.tsx
 import { fetchEventDetails } from "@/lib/api"
-import EventPageClient from "./client"
+
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import Link from "next/link"
+import { headers } from "next/headers"
+import EventPageClient from "./client"
 
 interface PageProps {
   params: Promise<{ id: string }>
 }
 
-
-export const revalidate = 1800
-
+export const revalidate = 1800 // 30 دقيقة
 
 export async function generateMetadata({ params }: PageProps) {
-  const { id } = await params
-
   try {
+    const { id } = await params
     const event = await fetchEventDetails(id)
 
     if (!event) {
@@ -29,9 +27,10 @@ export async function generateMetadata({ params }: PageProps) {
 
     const title = `${event.awayTeam?.name || 'Away'} vs ${event.homeTeam?.name || 'Home'} - ${event.league?.name || 'Game'} Live Score & Stats`
     const description = `Follow the ${event.league?.name || 'game'} between ${event.awayTeam?.name || 'Away'} and ${event.homeTeam?.name || 'Home'}. Live scores, stats, and updates.`
-    const images = event.awayTeam?.logo || event.homeTeam?.logo ?
-      [event.awayTeam?.logo, event.homeTeam?.logo].filter(Boolean) as string[] :
-      []
+
+    const images = []
+    if (event.awayTeam?.logo) images.push(event.awayTeam.logo)
+    if (event.homeTeam?.logo) images.push(event.homeTeam.logo)
 
     return {
       title,
@@ -70,7 +69,6 @@ export async function generateMetadata({ params }: PageProps) {
   }
 }
 
-// Structured Data (JSON-LD) للمحتوى الغني
 function generateStructuredData(event: any, eventId: string) {
   if (!event) return null
 
@@ -80,10 +78,10 @@ function generateStructuredData(event: any, eventId: string) {
   const venue = event.venue || {}
   const league = event.league || {}
 
-  const structuredData = {
+  return {
     "@context": "https://schema.org",
     "@type": "SportsEvent",
-    "@id": `https://livesportsresults.vercel.app/event/${eventId}#sportsevent`,
+    "@id": `https://livesportsresults.vercel.app/event/${eventId}`,
     name: `${awayTeam.name || "Away Team"} vs ${homeTeam.name || "Home Team"}`,
     description: `Live ${league.name || "sports"} event between ${awayTeam.name || "Away Team"} and ${homeTeam.name || "Home Team"}`,
     startDate: event.dateEvent,
@@ -125,35 +123,32 @@ function generateStructuredData(event: any, eventId: string) {
       priceCurrency: "USD",
     }
   }
-
-  return structuredData
 }
 
 export default async function EventPage({ params }: PageProps) {
-  const { id } = await params
-  console.log("📌 EventPage start for id:", id)
+  let initialEvent = null
+  let structuredData = null
 
   try {
-    const initialEvent = await fetchEventDetails(id)
-    console.log("✅ initialEvent fetched:", initialEvent)
-    const structuredData = generateStructuredData(initialEvent, id)
-    console.log("✅ structuredData generated:", structuredData)
+    const { id } = await params
+    const headersList = headers()
+    const userAgent = headersList.get("user-agent")
 
-    return (
-      <>
-        {structuredData && (
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-          />
-        )}
-        <EventPageClient initialEvent={initialEvent} eventId={id} />
-      </>
-    )
+    console.log("🔹 Event ID:", id)
+    console.log("🔹 User Agent:", userAgent)
+
+    initialEvent = await fetchEventDetails(id)
+    console.log("✅ Event data fetched successfully")
+    
+
+
+    structuredData = generateStructuredData(initialEvent, id)
+    console.log("📌 Event structure:", JSON.stringify(structuredData, null, 2))
   } catch (error) {
-    console.error("❌ Error fetching event details:", error)
-    console.error("Error fetching event details:", error)
+    console.error("❌ Error in EventPage:", error)
+  }
 
+  if (!initialEvent) {
     return (
       <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900">
         <Header />
@@ -173,4 +168,16 @@ export default async function EventPage({ params }: PageProps) {
       </div>
     )
   }
+
+  return (
+    <>
+      {structuredData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+      )}
+      <EventPageClient initialEvent={initialEvent} eventId={initialEvent.id } />
+    </>
+  )
 }
