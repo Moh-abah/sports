@@ -59,6 +59,9 @@ module.exports = {
     siteUrl: 'https://livesportsresults.vercel.app',
     generateRobotsTxt: true,
     sitemapSize: 5000,
+    additionalSitemaps: [
+        'https://livesportsresults.vercel.app/sitemaps/sitemap_eventpage.xml'
+    ],
 
     // دمج المسارات الديناميكية والثابتة
     additionalPaths: async () => {

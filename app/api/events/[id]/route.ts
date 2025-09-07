@@ -23,7 +23,7 @@ async function fetchRealEventDetails(eventId: string) {
     const espnPath = leagueMap[league.toLowerCase()];
     if (!espnPath) throw new Error(`Unsupported league: ${league}`);
 
-    // استدعاء API الخاص بـ ESPN
+    
     const summaryResponse = await fetch(
       `https://site.api.espn.com/apis/site/v2/sports/${espnPath}/summary?event=${espnEventId}`,
       {
@@ -36,8 +36,6 @@ async function fetchRealEventDetails(eventId: string) {
 
     const summaryData = await summaryResponse.json();
 
-    // طباعة بيانات ESPN الخام للديباجينج
-    // console.log("RAW ESPN DATA:", JSON.stringify(summaryData, null, 2));
 
     if (!summaryData.header) throw new Error("Event not found");
 

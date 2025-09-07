@@ -35,6 +35,41 @@ export async function fetchScoreboard() {
 
 
 
+// lib/api.ts
+export async function fetchAllEvents() {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/sports`, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+      next: { revalidate: 1800 } // ISR - تحديث كل 30 دقيقة
+    })
+
+    if (!res.ok) {
+      throw new Error(`Failed to fetch events: ${res.status}`)
+    }
+
+    const data = await res.json()
+
+    // لو ما فيه بيانات
+    if (!data?.data || data.data.length === 0) {
+      return []
+    }
+
+    // استخراج جميع الأحداث من جميع البطولات
+    const allEvents = data.data.flatMap((league: any) => league.games || [])
+
+    // تجهيز البيانات للسايت ماب
+    return allEvents.map((event: any) => ({
+      id: event.idEvent,
+      dateEvent: event.dateEvent || new Date().toISOString()
+    }))
+  } catch (error) {
+    console.error("Error fetching all events:", error)
+    return []
+  }
+}
+
+
 
 
 
@@ -77,14 +112,6 @@ export async function fetchSportsData() {
     return []
   }
 }
-
-
-
-
-
-
-
-
 
 
 

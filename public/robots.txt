@@ -7,3 +7,5 @@ Host: https://livesportsresults.vercel.app
 
 # Sitemaps
 Sitemap: https://livesportsresults.vercel.app/sitemap.xml
+Sitemap: https://livesportsresults.vercel.app/sitemaps/sitemap_eventpage.xml
+
