@@ -68,15 +68,21 @@ export async function generateMetadata({ params }: PageProps) {
     }
   }
 }
-
 function generateStructuredData(event: any, eventId: string) {
-  if (!event) return null
+  if (!event) return null;
 
-  const homeTeam = event.homeTeam || {}
-  const awayTeam = event.awayTeam || {}
-  const status = event.status || {}
-  const venue = event.venue || {}
-  const league = event.league || {}
+  const homeTeam = event.homeTeam || {};
+  const awayTeam = event.awayTeam || {};
+  const status = event.status || {};
+  const venue = event.venue || {};
+  const league = event.league || {};
+
+  // تعيين startDate و endDate بشكل صحيح
+  const startDate = event.dateEvent || new Date().toISOString();
+  const endDate = new Date(new Date(startDate).getTime() + 2 * 60 * 60 * 1000).toISOString(); // افتراض ساعتين
+
+  // صورة للحدث (اختياري)
+  const eventImage = event.image || homeTeam.logo || awayTeam.logo || undefined;
 
   return {
     "@context": "https://schema.org",
@@ -84,13 +90,13 @@ function generateStructuredData(event: any, eventId: string) {
     "@id": `https://livesportsresults.vercel.app/event/${eventId}`,
     name: `${awayTeam.name || "Away Team"} vs ${homeTeam.name || "Home Team"}`,
     description: `Live ${league.name || "sports"} event between ${awayTeam.name || "Away Team"} and ${homeTeam.name || "Home Team"}`,
-    startDate: event.dateEvent,
-    endDate: event.dateEvent ? new Date(new Date(event.dateEvent).getTime() + 2 * 60 * 60 * 1000).toISOString() : undefined,
-    eventStatus: status.isLive ?
-      "https://schema.org/EventLive" :
-      (status.state === "post" ?
-        "https://schema.org/EventCompleted" :
-        "https://schema.org/EventScheduled"),
+    startDate,
+    endDate,
+    eventStatus: status.isLive
+      ? "https://schema.org/EventLive"
+      : status.state === "post"
+        ? "https://schema.org/EventCompleted"
+        : "https://schema.org/EventScheduled",
     location: {
       "@type": "Place",
       name: venue.name || "TBD",
@@ -103,6 +109,7 @@ function generateStructuredData(event: any, eventId: string) {
     organizer: {
       "@type": "SportsOrganization",
       name: league.name || "",
+      url: league.url || undefined,
       alternateName: league.abbreviation || ""
     },
     homeTeam: {
@@ -115,15 +122,19 @@ function generateStructuredData(event: any, eventId: string) {
       name: awayTeam.name || "Away Team",
       logo: awayTeam.logo || undefined
     },
+    performer: [homeTeam.name, awayTeam.name], // يساعد Google
+    image: eventImage ? [eventImage] : undefined,
     offers: {
       "@type": "Offer",
       url: `https://livesportsresults.vercel.app/event/${eventId}`,
       availability: "https://schema.org/InStock",
       price: "0",
       priceCurrency: "USD",
+      validFrom: startDate
     }
-  }
+  };
 }
+
 
 export default async function EventPage({ params }: PageProps) {
   let initialEvent = null
