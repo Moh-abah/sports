@@ -58,10 +58,12 @@ async function getDynamicPaths() {
 module.exports = {
     siteUrl: 'https://livesportsresults.vercel.app',
     generateRobotsTxt: true,
-    sitemapSize: 5000,
-    additionalSitemaps: [
-        'https://livesportsresults.vercel.app/sitemap_eventpage.xml'
-    ],
+    
+    robotsTxtOptions: {
+        additionalSitemaps: [
+            'https://livesportsresults.vercel.app/eventpages_sitemap.xml',
+        ],
+    },
 
     // دمج المسارات الديناميكية والثابتة
     additionalPaths: async () => {
