@@ -131,10 +131,13 @@ function generateStructuredData(event: any, eventId: string) {
 
 export default async function EventPage({ params }: PageProps) {
   const { id } = await params
+  console.log("📌 EventPage start for id:", id)
 
   try {
     const initialEvent = await fetchEventDetails(id)
+    console.log("✅ initialEvent fetched:", initialEvent)
     const structuredData = generateStructuredData(initialEvent, id)
+    console.log("✅ structuredData generated:", structuredData)
 
     return (
       <>
@@ -148,6 +151,7 @@ export default async function EventPage({ params }: PageProps) {
       </>
     )
   } catch (error) {
+    console.error("❌ Error fetching event details:", error)
     console.error("Error fetching event details:", error)
 
     return (

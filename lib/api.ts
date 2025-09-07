@@ -2,6 +2,7 @@
 
 export const API_BASE = "/api/nfl";
 import { Player, Coach, Team } from "@/types/playerr";
+import { getCachedEvent, setCachedEvent } from "./cache";
 export async function fetchTeams() {
   const res = await fetch(`${API_BASE}/teams`);
   if (!res.ok) throw new Error("Failed to fetch teams");
@@ -122,6 +123,8 @@ export async function fetchSportsData() {
 
 export async function fetchEventDetails(eventId: string) {
   // console.group(`🔵 fetchEventDetails called for: ${eventId}`);
+  const cached = getCachedEvent(eventId);
+  if (cached) return cached;
   try {
     // console.log("Step 1: Sending fetch request to /api/events/...");
     const response = await fetch(`/api/events/${eventId}`, {
@@ -136,6 +139,13 @@ export async function fetchEventDetails(eventId: string) {
     }
 
     const data = await response.json();
+    // تحديد TTL حسب حالة المباراة
+    let ttl = 400; // 10 دقائق افتراضي
+    if (data.status?.isLive) ttl = 20; // حية: 20 ثانية
+    else if (data.status?.description?.toLowerCase() === "final") ttl = 86400; // منتهية: 24 ساعة
+    // مجدولة تبقى 10 دقائق (TTL الافتراضي)
+
+    setCachedEvent(eventId, data, ttl);
     // console.log("Step 2: JSON parsed (raw):", !!data);
 
     // helpers

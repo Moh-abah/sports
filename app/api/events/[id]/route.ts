@@ -1,4 +1,5 @@
 
+import { getCachedEvent, setCachedEvent } from "@/lib/cache";
 import { NextResponse } from "next/server";
 
 // Function to fetch real event details from ESPN - NO MOCK DATA
@@ -174,6 +175,8 @@ export async function GET(
         { status: 400 }
       );
     }
+    const cached = getCachedEvent(eventId);
+    if (cached) return NextResponse.json(cached);
 
     const eventDetails = await fetchRealEventDetails(eventId);
 
@@ -187,6 +190,12 @@ export async function GET(
         { status: 404 }
       );
     }
+    let ttl = 400; // مجدولة افتراضي: 10 دقائق
+    if (eventDetails.status?.isLive) ttl = 20;
+    else if (eventDetails.status?.description?.toLowerCase() === "final") ttl = 86400; // منتهية: 24 ساعة
+
+    setCachedEvent(eventId, eventDetails, ttl);
+
 
     return NextResponse.json(eventDetails);
   } catch (error) {

@@ -1,4 +1,4 @@
-// استدعاء fetch باستخدام dynamic import
+
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 const leagues = ["nba", "nfl", "mlb", "nhl", "mls"];
@@ -60,7 +60,7 @@ module.exports = {
     generateRobotsTxt: true,
     sitemapSize: 5000,
     additionalSitemaps: [
-        'https://livesportsresults.vercel.app/sitemaps/sitemap_eventpage.xml'
+        'https://livesportsresults.vercel.app/sitemap_eventpage.xml'
     ],
 
     // دمج المسارات الديناميكية والثابتة
