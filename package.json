@@ -5,6 +5,8 @@
   "scripts": {
     "build": "next build ",
     "postbuild": "next-sitemap",
+      "generate-sitemap": "node ./scripts/generate-sitemap.js",
+      
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start"
@@ -71,6 +73,7 @@
     "next-sitemap": "^4.2.3",
     "postcss": "^8.5",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
   }
 }
