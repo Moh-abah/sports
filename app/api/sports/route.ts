@@ -1,3 +1,4 @@
+import { getCache, setCache } from "@/lib/cacheall";
 import { NextResponse } from "next/server"
 
 
@@ -708,6 +709,32 @@ async function fetchMLSData() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const CACHE_KEY = "allSportsData";
+
+// أوقات التخزين (بالثواني)
+const TTL = {
+  live: 20,        // مباريات حية
+  finished: 86400, // مباراة منتهية (يوم كامل)
+  scheduled: 3600  // مباراة مجدولة (ساعة واحدة)
+};
+
 // Main function to fetch all real sports data
 async function fetchAllRealSportsData() {
   const promises = [
@@ -740,6 +767,14 @@ export async function GET() {
     }
 
     console.log('Fetching real sports data...')
+    // 1️⃣ التحقق من الكاش أولًا
+    const cachedData = getCache(CACHE_KEY);
+    if (cachedData) {
+      console.log("⚡ Served from cache");
+      return NextResponse.json(cachedData, { headers });
+    }
+
+    
 
     // Fetch all real sports data
     const sportsData = await fetchAllRealSportsData()
@@ -771,6 +806,7 @@ export async function GET() {
       status: 'success',
       message: `Successfully loaded ${totalGames} games from ${sportsData.length} leagues`
     }
+    setCache(CACHE_KEY, response, 20); // TTL = 20 ثانية للمباريات الحية
 
     console.log(`Successfully fetched ${totalGames} games from ${sportsData.length} leagues`)
 
