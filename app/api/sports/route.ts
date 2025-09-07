@@ -7,7 +7,7 @@ async function lastnfl() {
   try {
     const today = new Date();
     const past30Days = new Date();
-    past30Days.setDate(today.getDate() - 30);
+    past30Days.setDate(today.getDate() - 5);
 
     const formatDate = (d: Date) => {
       const yyyy = d.getFullYear();
