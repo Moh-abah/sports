@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://livesportsresults.vercel.app",
+    url: "https://sports.digitalworldhorizon.com",
     title: "Live Sports Results | Real-time American Sports Scores",
     description: "Get real-time sports scores and results for American sports including MLB, NBA, NFL, NHL, and MLS.",
     siteName: "Live Sports Results",
@@ -58,7 +58,7 @@ export default function RootLayout({
         {/* Additional SEO Meta Tags */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#1e40af" />
-        <link rel="canonical" href="https://livesportsresults.vercel.app" />
+        <link rel="canonical" href="https://sports.digitalworldhorizon.com" />
 
         {/* Preconnect to improve performance */}
         <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
@@ -74,8 +74,8 @@ export default function RootLayout({
               "@type": "SportsOrganization",
               "name": "Live Sports Results",
               "description": "Real-time sports scores and results for American sports",
-              "url": "https://livesportsresults.vercel.app",
-              "logo": "https://livesportsresults.vercel.app/logo.png",
+              "url": "https://sports.digitalworldhorizon.com",
+              "logo": "https://sports.digitalworldhorizon.com/logo.png",
               "sameAs": [
                 "https://twitter.com/livesportsresults",
                 "https://facebook.com/livesportsresults"

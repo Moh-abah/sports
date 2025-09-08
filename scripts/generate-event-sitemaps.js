@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
-const DOMAIN = 'https://livesportsresults.vercel.app';
+const DOMAIN = 'https://sports.digitalworldhorizon.com';
 const OUT_DIR = path.join(process.cwd(), 'public');
 const OUT_FILE = path.join(OUT_DIR, 'eventpages_sitemap.xml');
 

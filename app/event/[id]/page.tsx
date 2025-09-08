@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: PageProps) {
         description,
         type: 'website',
         locale: 'en_US',
-        url: `https://livesportsresults.vercel.app/event/${id}`,
+        url: `https://sports.digitalworldhorizon.com/event/${id}`,
         siteName: 'Live Sports Results',
         images: images.map(url => ({
           url,
@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: PageProps) {
         images: images.length > 0 ? images[0] : undefined,
       },
       alternates: {
-        canonical: `https://livesportsresults.vercel.app/event/${id}`,
+        canonical: `https://sports.digitalworldhorizon.com/event/${id}`,
       },
     }
   } catch (error) {
@@ -87,7 +87,7 @@ function generateStructuredData(event: any, eventId: string) {
   return {
     "@context": "https://schema.org",
     "@type": "SportsEvent",
-    "@id": `https://livesportsresults.vercel.app/event/${eventId}`,
+    "@id": `https://sports.digitalworldhorizon.com/event/${eventId}`,
     name: `${awayTeam.name || "Away Team"} vs ${homeTeam.name || "Home Team"}`,
     description: `Live ${league.name || "sports"} event between ${awayTeam.name || "Away Team"} and ${homeTeam.name || "Home Team"}`,
     startDate,
@@ -126,7 +126,7 @@ function generateStructuredData(event: any, eventId: string) {
     image: eventImage ? [eventImage] : undefined,
     offers: {
       "@type": "Offer",
-      url: `https://livesportsresults.vercel.app/event/${eventId}`,
+      url: `https://sports.digitalworldhorizon.com/event/${eventId}`,
       availability: "https://schema.org/InStock",
       price: "0",
       priceCurrency: "USD",

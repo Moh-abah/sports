@@ -3,8 +3,8 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://livesportsresults.vercel.app
+Host: https://sports.digitalworldhorizon.com
 
 # Sitemaps
-Sitemap: https://livesportsresults.vercel.app/sitemap.xml
-Sitemap: https://livesportsresults.vercel.app/eventpages_sitemap.xml
+Sitemap: https://sports.digitalworldhorizon.com/sitemap.xml
+Sitemap: https://sports.digitalworldhorizon.com/eventpages_sitemap.xml

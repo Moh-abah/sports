@@ -362,7 +362,7 @@ export default function EventPageClient({ initialEvent, eventId }: EventPageClie
 
     const pageTitle = `${event?.awayTeam?.name || 'Away'} vs ${event?.homeTeam?.name || 'Home'} - ${event?.league?.name || 'Game'} Live Score & Stats`
     const pageDescription = `Follow the ${event?.league?.name || 'game'} between ${event?.awayTeam?.name || 'Away'} and ${event?.homeTeam?.name || 'Home'}. Live scores, stats, and updates.`
-    const canonicalUrl = `https://livesportsresults.vercel.app/event/${eventId}`
+    const canonicalUrl = `https://sports.digitalworldhorizon.com/event/${eventId}`
 
     if (loading && !event) return (
         <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900">

@@ -32,7 +32,7 @@ async function getDynamicPaths() {
         });
 
         try {
-            const res = await fetch(`https://livesportsresults.vercel.app/api/leagues/${league}`);
+            const res = await fetch(`https://sports.digitalworldhorizon.com/api/leagues/${league}`);
             const data = await res.json();
 
             if (data.games && Array.isArray(data.games)) {
@@ -56,12 +56,12 @@ async function getDynamicPaths() {
 }
 
 module.exports = {
-    siteUrl: 'https://livesportsresults.vercel.app',
+    siteUrl: 'https://sports.digitalworldhorizon.com',
     generateRobotsTxt: true,
     
     robotsTxtOptions: {
         additionalSitemaps: [
-            'https://livesportsresults.vercel.app/eventpages_sitemap.xml',
+            'https://sports.digitalworldhorizon.com/eventpages_sitemap.xml',
         ],
     },
 

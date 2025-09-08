@@ -126,8 +126,8 @@ export default function HomeContent({
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "Organization",
-                        "url": "https://livesportsresults.vercel.app",
-                        "logo": "https://livesportsresults.vercel.app/logo.png"
+                        "url": "https://sports.digitalworldhorizon.com",
+                        "logo": "https://sports.digitalworldhorizon.com/logo.png"
                     })
                 }}
             />
