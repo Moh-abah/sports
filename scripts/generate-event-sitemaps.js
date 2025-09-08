@@ -22,7 +22,7 @@ async function fetchAllEventUrls() {
         urls.push({
           loc: `${DOMAIN}/event/${g.idEvent}`,
           lastmod: g.dateEvent || new Date().toISOString(),
-          priority: 0.8, // ثابت لكل الصفحات
+          priority: 1.0, // ثابت لكل الصفحات
           changefreq: 'daily', // ثابت لكل الصفحات
         });
       }
