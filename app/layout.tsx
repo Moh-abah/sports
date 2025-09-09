@@ -66,30 +66,60 @@ export default function RootLayout({
         <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
         <link rel="preconnect" href="https://tpc.googlesyndication.com" />
 
-        {/* Structured Data for Sports Organization */}
         <Script id="structured-data" type="application/ld+json" strategy="afterInteractive">
           {`
-            {
-              "@context": "https://schema.org",
-              "@type": "SportsOrganization",
-              "name": "Live Sports Results",
-              "description": "Real-time sports scores and results for American sports",
-              "url": "https://sports.digitalworldhorizon.com",
-              "logo": "https://sports.digitalworldhorizon.com/logo.png",
-              "sameAs": [
-                "https://twitter.com/livesportsresults",
-                "https://facebook.com/livesportsresults"
-              ],
-              "sport": [
-                "Baseball",
-                "Basketball", 
-                "American Football",
-                "Ice Hockey",
-                "Soccer"
-              ]
-            }
-          `}
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://sports.digitalworldhorizon.com/#organization",
+      "name": "Live Sports Results",
+      "url": "https://sports.digitalworldhorizon.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://sports.digitalworldhorizon.com/logo.png",
+        "width": 200,
+        "height": 200
+      },
+      
+      
+      "foundingDate": "2025-09-01"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://sports.digitalworldhorizon.com/#website",
+      "url": "https://sports.digitalworldhorizon.com",
+      "name": "Live Sports Results",
+      "publisher": {
+        "@id": "https://sports.digitalworldhorizon.com/#organization"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://sports.digitalworldhorizon.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "SportsOrganization",
+      "name": "Live Sports Results",
+      "description": "Real-time sports scores and results for American sports",
+      "url": "https://sports.digitalworldhorizon.com",
+      "logo": "https://sports.digitalworldhorizon.com/logo.png",
+      "sport": [
+        "Baseball",
+        "Basketball",
+        "American Football",
+        "Ice Hockey",
+        "Soccer"
+      ]
+      
+    }
+  ]
+}
+`}
         </Script>
+
 
         {/* Google AdSense - محسن للأداء */}
         <Script

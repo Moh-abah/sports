@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "prebuild": "node scripts/generate-event-sitemaps.js",
+    "prebuild": "node scripts/generate-event-sitemaps.js && node scripts/generate-player-sitemaps.js",
     "build": "next build ",
     "postbuild": "next-sitemap",
     "dev": "next dev",

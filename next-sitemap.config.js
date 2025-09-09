@@ -31,25 +31,7 @@ async function getDynamicPaths() {
             changefreq: 'daily'
         });
 
-        try {
-            const res = await fetch(`https://sports.digitalworldhorizon.com/api/leagues/${league}`);
-            const data = await res.json();
-
-            if (data.games && Array.isArray(data.games)) {
-                data.games.forEach((game) => {
-                    if (game.idEvent) {
-                        allPaths.push({
-                            loc: `/event/${game.idEvent}`,
-                            lastmod: game.status === 'Live' ? new Date().toISOString() : game.dateEvent,
-                            priority: game.status === 'Live' ? 1.0 : 0.9,
-                            changefreq: game.status === 'Live' ? 'hourly' : 'daily'
-                        });
-                    }
-                });
-            }
-        } catch (err) {
-            console.warn(`⚠️ Failed to fetch ${league} games for sitemap:`, err.message);
-        }
+       
     }
 
     return allPaths;
@@ -62,6 +44,8 @@ module.exports = {
     robotsTxtOptions: {
         additionalSitemaps: [
             'https://sports.digitalworldhorizon.com/eventpages_sitemap.xml',
+            'https://sports.digitalworldhorizon.com/players_sitemap.xml',
+
         ],
     },
 

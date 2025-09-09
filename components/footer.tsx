@@ -126,13 +126,8 @@ export default function Footer() {
               other trusted sources.
             </p>
             <div className="flex flex-wrap gap-4 text-sm">
-              <Link href="/sitemap.xml" className="text-gray-400 hover:text-white transition-colors">
-                Sitemap
-              </Link>
-              <Link href="/robots.txt" className="text-gray-400 hover:text-white transition-colors">
-                Robots
-              </Link>
-              <span className="text-gray-400">Made with ❤️ for Sports Fans</span>
+              
+              <span className="text-gray-400">Made with Live Sports Results for Sports Fans</span>
             </div>
           </div>
         </div>

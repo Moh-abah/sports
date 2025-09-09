@@ -1,532 +1,1467 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/nba_401812480</loc>
     <lastmod>2025-10-02</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nba_401812480/news</loc>
+    <lastmod>2025-10-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nba_401812480/depth</loc>
+    <lastmod>2025-10-02</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nba_401812480/roster</loc>
+    <lastmod>2025-10-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/nba_401812481</loc>
     <lastmod>2025-10-03</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nba_401812481/news</loc>
+    <lastmod>2025-10-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nba_401812481/depth</loc>
+    <lastmod>2025-10-03</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nba_401812481/roster</loc>
+    <lastmod>2025-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/nfl_401772810</loc>
     <lastmod>2025-09-09</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772810/news</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772810/depth</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772810</loc>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772810/roster</loc>
     <lastmod>2025-09-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/nfl_401772918</loc>
     <lastmod>2025-09-08</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772918/news</loc>
+    <lastmod>2025-09-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772918/depth</loc>
+    <lastmod>2025-09-08</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772918</loc>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772918/roster</loc>
     <lastmod>2025-09-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/nfl_401772830</loc>
     <lastmod>2025-09-07</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772830/news</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772830/depth</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772830/roster</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/nfl_401772829</loc>
     <lastmod>2025-09-07</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772829/news</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772829/depth</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772829/roster</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/nfl_401772719</loc>
     <lastmod>2025-09-07</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772719/news</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772719/depth</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772719/roster</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/nfl_401772720</loc>
     <lastmod>2025-09-07</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772720/news</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772720/depth</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772720/roster</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/nfl_401772718</loc>
     <lastmod>2025-09-07</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772718/news</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772718/depth</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772718/roster</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/nfl_401772721</loc>
     <lastmod>2025-09-07</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772721/news</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772721/depth</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772721/roster</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/nfl_401772827</loc>
     <lastmod>2025-09-07</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772827/news</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772827/depth</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772827/roster</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/nfl_401772828</loc>
     <lastmod>2025-09-07</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772828/news</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772828/depth</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772828/roster</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/nfl_401772832</loc>
     <lastmod>2025-09-07</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772832/news</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772832/depth</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772832/roster</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/nfl_401772831</loc>
     <lastmod>2025-09-07</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772831/news</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772831/depth</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772831/roster</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/nfl_401772722</loc>
     <lastmod>2025-09-07</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772722/news</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772722/depth</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772722/roster</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/nfl_401772723</loc>
     <lastmod>2025-09-07</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772723/news</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772723/depth</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772830</loc>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772723/roster</loc>
     <lastmod>2025-09-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772829</loc>
-    <lastmod>2025-09-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772719</loc>
-    <lastmod>2025-09-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772720</loc>
-    <lastmod>2025-09-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772718</loc>
-    <lastmod>2025-09-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772721</loc>
-    <lastmod>2025-09-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772827</loc>
-    <lastmod>2025-09-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772828</loc>
-    <lastmod>2025-09-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772832</loc>
-    <lastmod>2025-09-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772831</loc>
-    <lastmod>2025-09-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772722</loc>
-    <lastmod>2025-09-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772723</loc>
-    <lastmod>2025-09-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/nfl_401772714</loc>
     <lastmod>2025-09-06</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>1</priority>
   </url>
   <url>
-    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772714</loc>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772714/news</loc>
     <lastmod>2025-09-06</lastmod>
     <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772714/depth</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772714/roster</loc>
+    <lastmod>2025-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/nfl_401772510</loc>
     <lastmod>2025-09-05</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>1</priority>
   </url>
   <url>
-    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772510</loc>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772510/news</loc>
     <lastmod>2025-09-05</lastmod>
     <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772510/depth</loc>
+    <lastmod>2025-09-05</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697060</loc>
-    <lastmod>2025-09-08</lastmod>
+    <loc>https://sports.digitalworldhorizon.com/event/nfl_401772510/roster</loc>
+    <lastmod>2025-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697075</loc>
+    <lastmod>2025-09-09</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697075/news</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697075/depth</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697062</loc>
-    <lastmod>2025-09-08</lastmod>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697075/roster</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697073</loc>
+    <lastmod>2025-09-09</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697073/news</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697073/depth</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697061</loc>
-    <lastmod>2025-09-08</lastmod>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697073/roster</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697076</loc>
+    <lastmod>2025-09-09</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697076/news</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697076/depth</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697059</loc>
-    <lastmod>2025-09-08</lastmod>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697076/roster</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697074</loc>
+    <lastmod>2025-09-09</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697074/news</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697074/depth</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697060</loc>
-    <lastmod>2025-09-08</lastmod>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697074/roster</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697071</loc>
+    <lastmod>2025-09-09</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697071/news</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697071/depth</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697062</loc>
-    <lastmod>2025-09-08</lastmod>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697071/roster</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697072</loc>
+    <lastmod>2025-09-09</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697072/news</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697072/depth</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697061</loc>
-    <lastmod>2025-09-08</lastmod>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697072/roster</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697070</loc>
+    <lastmod>2025-09-09</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697070/news</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697070/depth</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697059</loc>
-    <lastmod>2025-09-08</lastmod>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697070/roster</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697078</loc>
+    <lastmod>2025-09-09</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697078/news</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697078/depth</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697078/roster</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697077</loc>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697077/news</loc>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697077/depth</loc>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697077/roster</loc>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697083</loc>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697083/news</loc>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697083/depth</loc>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697083/roster</loc>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697081</loc>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697081/news</loc>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697081/depth</loc>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697081/roster</loc>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697084</loc>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697084/news</loc>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697084/depth</loc>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697084/roster</loc>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697079</loc>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697079/news</loc>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697079/depth</loc>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697079/roster</loc>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401764589</loc>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401764589/news</loc>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401764589/depth</loc>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401764589/roster</loc>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697082</loc>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697082/news</loc>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697082/depth</loc>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697082/roster</loc>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/mlb_401697063</loc>
     <lastmod>2025-09-09</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697063/news</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697063/depth</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697063/roster</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/mlb_401697068</loc>
     <lastmod>2025-09-09</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697068/news</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697068/depth</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697068/roster</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/mlb_401697066</loc>
     <lastmod>2025-09-09</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697066/news</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697066/depth</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697066/roster</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/mlb_401697069</loc>
     <lastmod>2025-09-09</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697069/news</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697069/depth</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697069/roster</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/mlb_401697064</loc>
     <lastmod>2025-09-09</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697064/news</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697064/depth</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697064/roster</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/mlb_401764588</loc>
     <lastmod>2025-09-09</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401764588/news</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401764588/depth</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401764588/roster</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/mlb_401697067</loc>
     <lastmod>2025-09-09</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>1</priority>
   </url>
   <url>
-    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697063</loc>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697067/news</loc>
     <lastmod>2025-09-09</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697068</loc>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697067/depth</loc>
     <lastmod>2025-09-09</lastmod>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697066</loc>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697067/roster</loc>
     <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697060</loc>
+    <lastmod>2025-09-08</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697060/news</loc>
+    <lastmod>2025-09-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697060/depth</loc>
+    <lastmod>2025-09-08</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697069</loc>
-    <lastmod>2025-09-09</lastmod>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697060/roster</loc>
+    <lastmod>2025-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697062</loc>
+    <lastmod>2025-09-08</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697062/news</loc>
+    <lastmod>2025-09-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697062/depth</loc>
+    <lastmod>2025-09-08</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697064</loc>
-    <lastmod>2025-09-09</lastmod>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697062/roster</loc>
+    <lastmod>2025-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697061</loc>
+    <lastmod>2025-09-08</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697061/news</loc>
+    <lastmod>2025-09-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697061/depth</loc>
+    <lastmod>2025-09-08</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sports.digitalworldhorizon.com/event/mlb_401764588</loc>
-    <lastmod>2025-09-09</lastmod>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697061/roster</loc>
+    <lastmod>2025-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697059</loc>
+    <lastmod>2025-09-08</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697059/news</loc>
+    <lastmod>2025-09-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697059/depth</loc>
+    <lastmod>2025-09-08</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697067</loc>
-    <lastmod>2025-09-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697041</loc>
-    <lastmod>2025-09-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697042</loc>
-    <lastmod>2025-09-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697043</loc>
-    <lastmod>2025-09-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697059/roster</loc>
+    <lastmod>2025-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/mlb_401697050</loc>
     <lastmod>2025-09-07</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697050/news</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697050/depth</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697050/roster</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/mlb_401697045</loc>
     <lastmod>2025-09-07</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697045/news</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697045/depth</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697045/roster</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/mlb_401697046</loc>
     <lastmod>2025-09-07</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697046/news</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697046/depth</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697046/roster</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/mlb_401697047</loc>
     <lastmod>2025-09-07</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697047/news</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697047/depth</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697047/roster</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/mlb_401697051</loc>
     <lastmod>2025-09-07</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697051/news</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697051/depth</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697051/roster</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/mlb_401697044</loc>
     <lastmod>2025-09-07</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697044/news</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697044/depth</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697044/roster</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/mlb_401697048</loc>
     <lastmod>2025-09-07</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697048/news</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697048/depth</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697048/roster</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/mlb_401697049</loc>
     <lastmod>2025-09-07</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697049/news</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697049/depth</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697049/roster</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/mlb_401697053</loc>
     <lastmod>2025-09-07</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697053/news</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697053/depth</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697053/roster</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/mlb_401697054</loc>
     <lastmod>2025-09-07</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697054/news</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697054/depth</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697054/roster</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/mlb_401697055</loc>
     <lastmod>2025-09-07</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697055/news</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697055/depth</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697055/roster</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/mlb_401697052</loc>
     <lastmod>2025-09-07</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697052/news</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697052/depth</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697052/roster</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/mlb_401697056</loc>
     <lastmod>2025-09-07</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697056/news</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697056/depth</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697056/roster</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/mlb_401697058</loc>
     <lastmod>2025-09-07</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697058/news</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697058/depth</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697058/roster</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/mlb_401697057</loc>
     <lastmod>2025-09-07</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697057/news</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697057/depth</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697036</loc>
-    <lastmod>2025-09-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697040</loc>
-    <lastmod>2025-09-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697034</loc>
-    <lastmod>2025-09-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697029</loc>
-    <lastmod>2025-09-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697032</loc>
-    <lastmod>2025-09-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697033</loc>
-    <lastmod>2025-09-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697030</loc>
-    <lastmod>2025-09-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697031</loc>
-    <lastmod>2025-09-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697035</loc>
-    <lastmod>2025-09-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697037</loc>
-    <lastmod>2025-09-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697038</loc>
-    <lastmod>2025-09-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697039</loc>
-    <lastmod>2025-09-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <loc>https://sports.digitalworldhorizon.com/event/mlb_401697057/roster</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/nhl_401801790</loc>
     <lastmod>2025-09-20</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nhl_401801790/news</loc>
+    <lastmod>2025-09-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nhl_401801790/depth</loc>
+    <lastmod>2025-09-20</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/nhl_401801790/roster</loc>
+    <lastmod>2025-09-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://sports.digitalworldhorizon.com/event/mls_727229</loc>
     <lastmod>2025-09-07</lastmod>
     <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mls_727229/news</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mls_727229/depth</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sports.digitalworldhorizon.com/event/mls_727229/roster</loc>
+    <lastmod>2025-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

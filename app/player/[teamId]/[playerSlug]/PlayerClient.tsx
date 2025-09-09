@@ -1,21 +1,18 @@
+// app/event/[id]/player/[teamId]/[playerSlug]/PlayerClient.tsx
 "use client";
-import { notFound } from "next/navigation";
-import Head from "next/head";
-import { Player } from "@/types/player";
+
+import { useState } from "react";
+import Image from "next/image";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
-import { useState, useEffect } from "react";
-import Image from "next/image";
+import { Player } from "@/types/playerr";
 
-function getSportPath(sport: string): string {
-    switch (sport.toLowerCase()) {
-        case "nba": return "basketball/nba";
-        case "nfl": return "football/nfl";
-        case "mlb": return "baseball/mlb";
-        case "nhl": return "hockey/nhl";
-        case "mls": return "soccer/usa.1";
-        default: return "football/nfl";
-    }
+interface PlayerClientProps {
+    player: Player;
+    sport: string;
+    eventId: string;
+    teamId: string;
+    playerSlug: string;
 }
 
 function getSportColors(sport: string) {
@@ -76,39 +73,6 @@ function getSportSpecificStats(sport: string, stats: any) {
     return sportStats[sport.toLowerCase()] || [];
 }
 
-async function fetchPlayerFromTeam(teamId: string, playerId: string, sportPath: string): Promise<Player | null> {
-    try {
-        const res = await fetch(`https://site.api.espn.com/apis/site/v2/sports/${sportPath}/teams/${teamId}/roster`, { cache: "no-store" });
-        if (!res.ok) return null;
-        const data = await res.json();
-        const groups = data.athletes || [];
-
-        for (const group of groups) {
-            for (const player of group.items || []) {
-                if (player.id === playerId) {
-                    return {
-                        id: player.id,
-                        name: player.displayName,
-                        fullName: player.fullName,
-                        photo: player.headshot?.href,
-                        team: data.team?.displayName,
-                        teamLogo: data.team?.logo,
-                        position: player.position?.abbreviation,
-                        positionName: player.position?.displayName,
-                        jersey: player.jersey,
-                        stats: player.stats || {},
-                        rawData: player,
-                    };
-                }
-            }
-        }
-        return null;
-    } catch (error) {
-        console.error("Error fetching player:", error);
-        return null;
-    }
-}
-
 const InfoRow = ({ label, value }: { label: string; value: string | number }) => (
     <div className="flex justify-between py-3 border-b border-gray-100 last:border-b-0">
         <span className="text-gray-600">{label}</span>
@@ -153,65 +117,14 @@ const StatsTable = ({ stats, sport }: { stats: any, sport: string }) => {
     );
 };
 
-export default function PlayerPage({
-    params,
-    searchParams,
-}: {
-    params: { playerSlug: string; teamId: string };
-    searchParams: { sport?: string };
-}) {
-    const { playerSlug, teamId } = params;
-    const sport = searchParams.sport || "nfl";
-    const sportPath = getSportPath(sport);
-    const sportColors = getSportColors(sport);
-
-    const [player, setPlayer] = useState<Player | null>(null);
-    const [loading, setLoading] = useState(true);
+export default function PlayerClient({ player, sport, eventId, teamId, playerSlug }: PlayerClientProps) {
     const [activeTab, setActiveTab] = useState("overview");
-
-    useEffect(() => {
-        const loadPlayer = async () => {
-            const playerData = await fetchPlayerFromTeam(teamId, playerSlug, sportPath);
-            if (!playerData) {
-                setLoading(false);
-                return;
-            }
-            setPlayer(playerData);
-            setLoading(false);
-        };
-
-        loadPlayer();
-    }, [teamId, playerSlug, sportPath]);
-
-    if (loading) {
-        return (
-            <div className="min-h-screen flex flex-col bg-gray-50">
-                <Header />
-                <div className="flex-grow flex items-center justify-center">
-                    <div className="text-center">
-                        <div className="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mb-4"></div>
-                        <p className="text-gray-600">Loading player data...</p>
-                    </div>
-                </div>
-                <Footer />
-            </div>
-        );
-    }
-
-    if (!player) {
-        notFound();
-    }
-
+    const sportColors = getSportColors(sport);
     const rd = player.rawData;
 
     return (
         <>
             <Header />
-
-            <Head>
-                <title>{player.fullName} - {player.team} | {sport.toUpperCase()} Player Profile</title>
-                <meta name="description" content={`Profile and statistics for ${player.fullName}, ${player.positionName} for the ${player.team}`} />
-            </Head>
 
             <main className="min-h-screen bg-gray-50">
                 {/* Player Header Section */}

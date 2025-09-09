@@ -145,16 +145,14 @@ export default async function EventPage({ params }: PageProps) {
     const headersList = headers()
     const userAgent = headersList.get("user-agent")
 
-    console.log("🔹 Event ID:", id)
-    console.log("🔹 User Agent:", userAgent)
-
+   
     initialEvent = await fetchEventDetails(id)
-    console.log("✅ Event data fetched successfully")
+   
     
 
 
     structuredData = generateStructuredData(initialEvent, id)
-    console.log("📌 Event structure:", JSON.stringify(structuredData, null, 2))
+   
   } catch (error) {
     console.error("❌ Error in EventPage:", error)
   }
@@ -179,6 +177,8 @@ export default async function EventPage({ params }: PageProps) {
       </div>
     )
   }
+ 
+  
 
   return (
     <>
@@ -186,6 +186,8 @@ export default async function EventPage({ params }: PageProps) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          
+
         />
       )}
       <EventPageClient initialEvent={initialEvent} eventId={initialEvent.id } />

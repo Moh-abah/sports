@@ -8,3 +8,4 @@ Host: https://sports.digitalworldhorizon.com
 # Sitemaps
 Sitemap: https://sports.digitalworldhorizon.com/sitemap.xml
 Sitemap: https://sports.digitalworldhorizon.com/eventpages_sitemap.xml
+Sitemap: https://sports.digitalworldhorizon.com/players_sitemap.xml

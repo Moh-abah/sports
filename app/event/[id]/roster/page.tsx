@@ -447,7 +447,7 @@ export default function EventRosterPage() {
                                                         <tr key={player.id} className={index % 2 === 0 ? "bg-gray-50 dark:bg-gray-800" : "bg-white dark:bg-gray-700"}>
                                                             <td className="py-3 px-4">
                                                                 <Link
-                                                                    href={`/event/${eventId}/player/${currentTeam.id}/${player.id}?sport=${league.abbreviation.toLowerCase()}`}
+                                                                    href={`/player/${currentTeam.id}/${player.id}?sport=${league.abbreviation?.toLowerCase()}`}
                                                                     className="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-300"
                                                                 >
                                                                     {player.headshot?.href && (
