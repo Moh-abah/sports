@@ -160,6 +160,7 @@ export default function RootLayout({
             `,
           }}
         />
+        <meta name="google-site-verification" content="6D3PTFYvR0rJc-k7wd2oHlrOzQ9hFayhY2ZdXL_Vu64" />
       </head>
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
